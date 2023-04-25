@@ -80,7 +80,7 @@ public class Calculator implements ActionListener{
 		mrButton=new JButton("MR");
 		mcButton=new JButton("MC");
 		
-		ImageIcon delIcon=new ImageIcon("C:\\Users\\User\\Desktop\\GitHub Projects\\JAVA\\delicon20.png");
+		ImageIcon delIcon=new ImageIcon("C:\\Users\\User\\Desktop\\GitHub Projects\\JAVA\\delicon.png");
 		delButton=new JButton(delIcon);
 		
 		
