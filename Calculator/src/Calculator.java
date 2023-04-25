@@ -221,9 +221,9 @@ public class Calculator implements ActionListener{
 		
 	}
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) {   //Not having main function cause Null Pointer Exception in Eclipse Java
 		
-		Calculator calc = new Calculator();
+		Calculator calc = new Calculator();    //Created an object of the class Calculator
 	}
 
 	@Override
