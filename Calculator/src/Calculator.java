@@ -1,4 +1,5 @@
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -14,12 +15,24 @@ public class Calculator implements ActionListener{
 	
 	//Creating Frame, text field, number as well as function buttons, and a panel
 	JFrame frame;
-	JTextField textfield;
+	JTextField textField;
 	JButton[] numberButtons=new JButton[10];
 	JButton[] functionButtons=new JButton[18];
 	JButton addButton,subButton,mulButton,divButton,modButton,rootButton,sqrButton,cubrButton,dZeroButton;
 	JButton decButton,equButton,delButton,clrButton,negButton,mPlusButton,mMinusButton,mrButton,mcButton;
 	JPanel panel;
+	
+	
+	//Adding different fonts
+	Font textFieldFont=new Font("monospace", Font.PLAIN, 30);
+	Font bigPlainFont=new Font("monospace", Font.PLAIN, 20);
+	Font smallPlainFont=new Font("monospace", Font.PLAIN, 19);
+	
+	Font boldFont1=new Font("monospace", Font.BOLD, 13);
+	Font boldFont2=new Font("monospace", Font.BOLD, 14);
+	Font boldFont3=new Font("monospace", Font.BOLD, 16);
+	Font boldFont4=new Font("monospace", Font.BOLD, 19);
+    Font boldFont5=new Font("monospace", Font.BOLD, 20);
 	
 	public Calculator() {
 		// TODO Auto-generated constructor stub
@@ -37,15 +50,16 @@ public class Calculator implements ActionListener{
 		//Creating and adding elements to the frame
 		
 		//Styling text field object
-		textfield=new JTextField();                              //Creates a display for the calculator                                       
-		textfield.setBorder(BorderFactory.createEmptyBorder());  //Removes the default border
-		textfield.setBorder(BorderFactory.createMatteBorder(0, 1, 0, 1, Color.GRAY)); // set left & right borders
-		textfield.setBounds(0, 0, 324, 170);
-		textfield.setBackground(Color.BLACK);
-		textfield.setForeground(Color.WHITE);
-		textfield.setHorizontalAlignment(JTextField.RIGHT);      //Aligns the text in the text field to the right
-		textfield.setEditable(false);                            //Makes the text area display non-editable
-		
+		textField=new JTextField();                              //Creates a display for the calculator                                       
+		textField.setBorder(BorderFactory.createEmptyBorder());  //Removes the default border
+		textField.setBorder(BorderFactory.createMatteBorder(0, 1, 0, 1, Color.GRAY)); // set left & right borders
+		textField.setBounds(0, 0, 324, 170);
+		textField.setBackground(Color.BLACK);
+		textField.setForeground(Color.WHITE);
+		textField.setHorizontalAlignment(JTextField.RIGHT);      //Aligns the text in the text field to the right
+		textField.setEditable(true);                            //Makes the text area display non-editable
+		textField.setFont(textFieldFont);
+
 		
 		//Creating objects for function buttons
 		addButton=new JButton("+");
@@ -66,7 +80,7 @@ public class Calculator implements ActionListener{
 		mrButton=new JButton("MR");
 		mcButton=new JButton("MC");
 		
-		ImageIcon delIcon=new ImageIcon("C:\\Users\\User\\Desktop\\GitHub Projects\\JAVA\\delicon.png");
+		ImageIcon delIcon=new ImageIcon("C:\\Users\\User\\Desktop\\GitHub Projects\\JAVA\\delicon20.png");
 		delButton=new JButton(delIcon);
 		
 		
@@ -96,6 +110,8 @@ public class Calculator implements ActionListener{
 			functionButtons[i].setBackground(Color.BLACK);	
 		    functionButtons[i].setForeground(Color.WHITE);
 		    functionButtons[i].setFocusable(false); 
+			functionButtons[i].setFont(boldFont2);
+
 		}
 		
 		
@@ -105,6 +121,8 @@ public class Calculator implements ActionListener{
 			numberButtons[i].setBackground(Color.BLACK);	
 		    numberButtons[i].setForeground(Color.WHITE);
 		    numberButtons[i].setFocusable(false);
+			numberButtons[i].setFont(boldFont2);
+
 		}
 		
 		
@@ -147,47 +165,58 @@ public class Calculator implements ActionListener{
 		
 		
 		//Adding special styles to selected buttons
-		addButton.setBackground(Color.DARK_GRAY);
+		addButton.setBackground(Color.decode("#323232"));
 		addButton.setForeground(Color.BLACK);
+		addButton.setFont(bigPlainFont);
 		
-		subButton.setBackground(Color.DARK_GRAY);
+		subButton.setBackground(Color.decode("#323232"));
 		subButton.setForeground(Color.BLACK);
+		subButton.setFont(bigPlainFont);
 		
-		mulButton.setBackground(Color.DARK_GRAY);
+		mulButton.setBackground(Color.decode("#323232"));
 		mulButton.setForeground(Color.BLACK);
-		
-		divButton.setBackground(Color.DARK_GRAY);
+		mulButton.setFont(smallPlainFont);
+
+		divButton.setBackground(Color.decode("#323232"));
 		divButton.setForeground(Color.BLACK);
-		
-		equButton.setBackground(Color.DARK_GRAY);
+		divButton.setFont(boldFont5);
+
+		equButton.setBackground(Color.decode("#323232"));
 		equButton.setForeground(Color.BLACK);
-		
-		modButton.setBackground(Color.DARK_GRAY);
+		equButton.setFont(bigPlainFont);
+
+		modButton.setBackground(Color.decode("#323232"));
 		modButton.setForeground(Color.BLACK);
-		
-		negButton.setBackground(Color.DARK_GRAY);
+		modButton.setFont(boldFont3);
+
+		negButton.setBackground(Color.decode("#323232"));
 		negButton.setForeground(Color.BLACK);
-		
-		rootButton.setBackground(Color.DARK_GRAY);
+		negButton.setFont(smallPlainFont);
+
+		rootButton.setBackground(Color.decode("#323232"));
 		rootButton.setForeground(Color.BLACK);
-	
-		sqrButton.setBackground(Color.DARK_GRAY);
+		rootButton.setFont(boldFont4);
+
+		sqrButton.setBackground(Color.decode("#323232"));
 		sqrButton.setForeground(Color.BLACK);
-		
-		cubrButton.setBackground(Color.DARK_GRAY);
+		sqrButton.setFont(smallPlainFont);		
+
+		cubrButton.setBackground(Color.decode("#323232"));
 		cubrButton.setForeground(Color.BLACK);
-		
-		clrButton.setBackground(Color.DARK_GRAY);
+		cubrButton.setFont(boldFont4);
+
+		clrButton.setBackground(Color.decode("#323232"));
 		clrButton.setForeground(Color.BLACK);
-		
-		rootButton.setBackground(Color.DARK_GRAY);
-		delButton.setBackground(Color.DARK_GRAY);
+		clrButton.setFont(boldFont1);
+
+		rootButton.setBackground(Color.decode("#323232"));
+		delButton.setBackground(Color.decode("#323232"));
 		
 		
 		
 		//Adding elements to the frame and making it visible
 		frame.add(panel);
-		frame.add(textfield);
+		frame.add(textField);
 		frame.setVisible(true);
 		
 	}
