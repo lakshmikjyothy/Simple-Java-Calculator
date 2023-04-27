@@ -39,7 +39,8 @@ public class Calculator implements ActionListener{
 	
     
     //Variable declaration to aid the action listener operations
-	double num1,num2,result;
+  
+	double num1, num2, result;
 	char operator;
 	
 	
@@ -282,8 +283,126 @@ public class Calculator implements ActionListener{
 			}
 			
 		}
-
 		
+		
+		//Action on major function buttons
+        if(e.getSource()==addButton) {
+			
+        	/*
+        	 * parseDouble method converts the text received from the 
+        	 * textField to double data type and assign it to num1
+        	*/
+        	
+			num1=Double.parseDouble(textField.getText());
+			operator='+';
+			textField.setText("");
+		
+		}else if(e.getSource()==subButton) {
+			
+			num1=Double.parseDouble(textField.getText());
+			operator='-';
+			textField.setText("");
+		
+		}else if(e.getSource()==mulButton) {
+			
+			num1=Double.parseDouble(textField.getText());
+			operator='*';
+			textField.setText("");
+		
+		}else if(e.getSource()==divButton) {
+			
+			num1=Double.parseDouble(textField.getText());
+			operator='/';
+			textField.setText("");
+			
+			
+		}else if(e.getSource()==equButton) {
+			
+			/*
+			 * parseDouble method converts the text received from the 
+			 * textField to double data type and assign it to num2
+			*/
+			
+			num2=Double.parseDouble(textField.getText());
+		    
+	        switch (operator) {
+	        
+			case '+':
+				result=num1+num2;
+				break;
+				
+			case '-':
+				result=num1-num2;
+				break;
+				
+			case '*':
+				result=num1*num2;
+				break;
+				
+			case '/':
+				result=num1/num2;
+				break;
+			
+			}    
+	        
+	        textField.setText(String.valueOf(result));
+	        num1=result;
+	        
+		}else if(e.getSource()==modButton) {
+			
+			num2=Double.parseDouble(textField.getText());
+		    
+	        switch (operator) {
+	        
+			case '+':
+				result=num1+((num1*num2)/100);
+				break;
+				
+			case '-':
+				result=num1-((num1*num2)/100);
+				break;
+				
+			case '*':
+				result=(num1*num2)/100;
+				break;
+				
+			case '/':
+				result=(num1/num2)*100;
+				break;
+			
+			}    
+	        
+	        textField.setText(String.valueOf(result));
+	        num1=result;
+			
+		}
+        
+        
+        //Action on other function buttons
+        if(e.getSource()==rootButton) {
+			
+    	    num1=Double.parseDouble(textField.getText());;
+			textField.setText("");
+            textField.setText(textField.getText()+Math.sqrt(num1));
+            
+        }else if(e.getSource()==cubrButton) {
+	    	
+	        num1=Double.parseDouble(textField.getText());;
+	    	textField.setText("");
+            textField.setText(textField.getText()+Math.cbrt(num1));
+	    	
+        }else if(e.getSource()==sqrButton) {
+	    	
+	        num1=Double.parseDouble(textField.getText());;
+	    	textField.setText("");
+	    	textField.setText(textField.getText()+num1*num1);
+	    	
+        }else if(e.getSource()==negButton) {
+	    		
+            Double temp=Double.parseDouble(textField.getText());
+           	temp*=-1;
+           	textField.setText(String.valueOf(temp));
+           	
+	    }
 	}
-
 }
