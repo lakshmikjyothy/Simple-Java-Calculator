@@ -6,7 +6,6 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.management.StringValueExp;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -243,6 +242,46 @@ public class Calculator implements ActionListener{
 		// TODO Auto-generated method stub
 		
 		
+	    //Action on number buttons
+		for( int i=0; i<10; i++) {
+			
+			if(e.getSource()==numberButtons[i]) {
+				
+				textField.setText(textField.getText().concat(String.valueOf(i)));
+				
+			}
+			
+		}
+        
+        
+        //Action on double zero and decimal button
+        if(e.getSource()==dZeroButton) {
+        	
+        	textField.setText(textField.getText().concat("00"));
+        	
+        }else if(e.getSource()==decButton) {
+        	
+        	textField.setText(textField.getText().concat("."));
+        	
+        }
+        	
+        
+		//Action on clear and delete buttons
+		if(e.getSource()==clrButton) {
+			
+			textField.setText("");
+			
+		}else if(e.getSource()==delButton) {
+			
+			String value = textField.getText();  //Value in the textField is assigned to a variable named value     
+			textField.setText("");
+			
+			for(int i=1; i<value.length(); i++) {
+				
+				textField.setText(textField.getText()+(value.charAt(i)));
+			}
+			
+		}
 
 		
 	}
