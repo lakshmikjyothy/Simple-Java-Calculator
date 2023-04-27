@@ -1,9 +1,12 @@
+package javaCalculator;
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.management.StringValueExp;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -12,6 +15,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class Calculator implements ActionListener{
+	
 	
 	//Creating Frame, text field, number as well as function buttons, and a panel
 	JFrame frame;
@@ -34,6 +38,12 @@ public class Calculator implements ActionListener{
 	Font boldFont4=new Font("monospace", Font.BOLD, 19);
     Font boldFont5=new Font("monospace", Font.BOLD, 20);
 	
+    
+    //Variable declaration to aid the action listener operations
+	double num1,num2,result;
+	char operator;
+	
+	
 	public Calculator() {
 		// TODO Auto-generated constructor stub
 		
@@ -51,13 +61,13 @@ public class Calculator implements ActionListener{
 		
 		//Styling text field object
 		textField=new JTextField();                              //Creates a display for the calculator                                       
-		textField.setBorder(BorderFactory.createEmptyBorder());  //Removes the default border
+		//textField.setBorder(BorderFactory.createEmptyBorder());  //Removes the default border
 		textField.setBorder(BorderFactory.createMatteBorder(0, 1, 0, 1, Color.GRAY)); // set left & right borders
 		textField.setBounds(0, 0, 324, 170);
 		textField.setBackground(Color.BLACK);
 		textField.setForeground(Color.WHITE);
 		textField.setHorizontalAlignment(JTextField.RIGHT);      //Aligns the text in the text field to the right
-		textField.setEditable(true);                            //Makes the text area display non-editable
+		textField.setEditable(false);                            //Makes the text area display non-editable
 		textField.setFont(textFieldFont);
 
 		
@@ -107,6 +117,7 @@ public class Calculator implements ActionListener{
 		
 		//Styling function buttons
 		for(int i=0; i<18; i++) {
+			functionButtons[i].addActionListener(this);     //To recognize the action performed by user on function buttons
 			functionButtons[i].setBackground(Color.BLACK);	
 		    functionButtons[i].setForeground(Color.WHITE);
 		    functionButtons[i].setFocusable(false); 
@@ -118,6 +129,7 @@ public class Calculator implements ActionListener{
 		//Styling number buttons
 		for(int i=0; i<10; i++) {
 			numberButtons[i]=new JButton(String.valueOf(i));
+			numberButtons[i].addActionListener(this);        //To recognize the action performed by user on number buttons
 			numberButtons[i].setBackground(Color.BLACK);	
 		    numberButtons[i].setForeground(Color.WHITE);
 		    numberButtons[i].setFocusable(false);
@@ -229,6 +241,9 @@ public class Calculator implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
+		
+		
+
 		
 	}
 
